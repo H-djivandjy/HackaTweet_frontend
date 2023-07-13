@@ -1,4 +1,5 @@
 import styles from '../styles/Home.module.css';
+import Link from 'next/link';
 
 
 function Home() {
@@ -8,14 +9,21 @@ function Home() {
         {/* <img src="Twitter.jpg" /> */}
       </div>
       <main className={styles.main}>
-        
-        <img src="logo twitter.png" />
+        <div className={styles.centre}>
+          <div className={styles.logocontainer}>
+            <img src="logo twitter.png" className={styles.logotwitter}/>
+          </div>
+          <div className={styles.text}></div>
           <h1 className={styles.h1}>See what's happening</h1>
-          <h3>Join Hackatweet today.</h3>
-          <button clas>Sign up</button>
-          <p>Already have an account?</p>
-          <button>Sign in</button>
-        
+          <h4>Join Hackatweet today.</h4>
+          <button className={styles.btnsignup}>Sign up</button>
+          <p className={styles.p}>Already have an account?</p>
+          <button className={styles.btnsignin}>Sign in</button>
+          <div>
+          <Link href="/tweets">Go to Tweets page</Link>
+          </div>
+
+          </div>
       </main>
     </div>
   );

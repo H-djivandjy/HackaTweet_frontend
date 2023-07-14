@@ -30,15 +30,16 @@ function Signup() {
 		fetch('http://localhost:3000/users/signup', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ username: signUpUsername, password: signUpPassword }),
+			body: JSON.stringify({ username: signUpUsername, password: signUpPassword, pseudo: signUpPseudo }),
 		}).then(response => response.json())
 			.then(data => { console.log(data)
-				// if (data.result) {
-				// 	dispatch(login({ username: signUpUsername, token: data.token }));
-				// 	setSignUpUsername('');
-				// 	setSignUpPassword('');
-				// 	// setIsModalOpen(false)
-				// }
+				if (data.result) {
+					dispatch(login({ username: signUpUsername, token: data.token }));
+					setSignUpUsername('');
+					setSignUpPassword('');
+          setSignUpPseudo('');
+					setIsModalOpen(false)
+				}
 			});
 	};
   

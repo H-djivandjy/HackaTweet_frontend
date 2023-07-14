@@ -1,14 +1,26 @@
 import '../styles/globals.css';
 import Head from 'next/head';
+import user from '../reducers/user';
+
+
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+
+const store = configureStore({
+  reducer: { user },
+ });
+ 
 
 function App({ Component, pageProps }) {
   return (
-    <>
-      <Head>
-        <title>Next.js App</title>
-      </Head>
-      <Component {...pageProps} />
-    </>
+    <Provider store={store}>
+      <>
+        <Head>
+          <title>Next.js App</title>
+        </Head>
+        <Component {...pageProps} />
+      </>
+    </Provider>
   );
 }
 
